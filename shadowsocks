@@ -1,0 +1,39 @@
+环境： ubuntu 24.04 (yakkety and above)
+
+referer:https://gist.github.com/zhiguangwang/7018fbc0a38a5b663868
+
+1. Install the the shadowsocks-libev package from apt repository.
+   sudo apt update
+   sudo apt install shadowsocks-libev
+
+2. Save ss.json as /etc/shadowsocks-libev/config.json.
+3. Replace server_port and password in ss.json with your own choices.
+   server_addr 将127.0.0.1 改为0.0.0.0，服务器启动使用成功，估计127.0.0.1 亦可（未尝试）
+   server_port 改为如：8888， password改为如：LnJdEa4DZpio
+4. Restart the shadowsocks-libev service.
+   sudo systemctl restart shadowsocks-libev
+   sudo systemctl status shadowsocks-libev
+5.
+相关命令的地址： /usr/bin/ss-server -c /etc/shadowsocks-libev/config.json
+
+
+
+
+####IMPORTANT####
+
+1. Enable auto-start at boot time.
+   sudo systemctl enable shadowsocks-libev.service
+2 Check its status. Make sure it’s running.
+   sudo systemctl status shadowsocks-libev.service
+
+
+3. 注意防火墙启用问题: ubuntu: iptables、ufw；RHEL、centOS: firewalld
+ iptables:
+   sudo iptables -I INPUT -p tcp --dport 8888 -j ACCEPT
+   sudo iptables -I INPUT -p udp --dport 8888 -j ACCEPT
+ ufw:
+   ufw allow 8888
+ 
+
+
+   
