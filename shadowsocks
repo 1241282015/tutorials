@@ -1,6 +1,8 @@
 环境： ubuntu 24.04 (yakkety and above)
 
-referer:https://gist.github.com/zhiguangwang/7018fbc0a38a5b663868
+reference:
+   https://gist.github.com/zhiguangwang/7018fbc0a38a5b663868
+   https://www.linuxbabe.com/ubuntu/shadowsocks-libev-proxy-server-ubuntu-24-04
 
 1. Install the the shadowsocks-libev package from apt repository.
    sudo apt update
